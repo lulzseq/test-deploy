@@ -1,11 +1,16 @@
+import os
 from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 app = FastAPI()
 
 origins = [
-    "http://localhost:5173",
+    os.getenv('VITE_ORIGIN_URL'),
 ]
 
 app.add_middleware(
