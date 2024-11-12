@@ -9,7 +9,6 @@ function App() {
 
   const handleClickButton = async () => {
     const { data, statusCode } = await handleClick();
-    const hyperlink = `${import.meta.env.VITE_API_URL}`;
 
     setStatusCode(JSON.stringify(statusCode));
     setResponseData(JSON.stringify(data));
