@@ -1,4 +1,4 @@
-import { Button, Center, Code, Stack } from '@mantine/core';
+import { Button, Center, Code, Stack, Anchor } from '@mantine/core';
 import { useState } from 'react';
 import { handleClick } from './api/api';
 
@@ -9,6 +9,7 @@ function App() {
 
   const handleClickButton = async () => {
     const { data, statusCode } = await handleClick();
+    const hyperlink = `${import.meta.env.VITE_API_URL}`;
 
     setStatusCode(JSON.stringify(statusCode));
     setResponseData(JSON.stringify(data));
@@ -22,6 +23,7 @@ function App() {
           </Button>
           <Code block style={{ height: '50px', textAlign: 'center', fontSize: '14px' }}>{responseData}</Code>
           <Code block style={{ height: '50px', textAlign: 'center', fontSize: '14px' }}>{statusCode}</Code>
+          <Anchor href={import.meta.env.VITE_API_URL} target="_blank">{import.meta.env.VITE_API_URL}</Anchor>
         </Stack>
       </Center>
     </>
